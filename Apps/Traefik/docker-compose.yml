@@ -106,7 +106,7 @@ x-casaos:
 
       Visit [Traefik Labs](https://doc.traefik.io/traefik/) for more details. Check the [documentation](https://doc.traefik.io/traefik/) for further settings.
 
-      🚨 Note: This app will always stay on the latest version of 2.x. If you want to upgrade always to the latest version install `Traefik` instead.
+      🚨 Note: This app will always stay on the latest version.
   developer: Traefik Labs
   icon: https://icon.casaos.io/main/all/traefik.png
   index: /
@@ -114,13 +114,13 @@ x-casaos:
   port_map: "8080"
   project_url: https://github.com/fseesink/CasaOS-AppStore
   screenshot_link:
-    - https://raw.githubusercontent.com/mr-manuel/CasaOS-HomeAutomation-AppStore/latest/Apps/Traefik-v3/screenshot-1.png
-    - https://raw.githubusercontent.com/mr-manuel/CasaOS-HomeAutomation-AppStore/latest/Apps/Traefik-v3/screenshot-2.png
-    - https://raw.githubusercontent.com/mr-manuel/CasaOS-HomeAutomation-AppStore/latest/Apps/Traefik-v3/screenshot-3.png
+    - https://raw.githubusercontent.com/fseesink/CasaOS-AppStore/refs/heads/main/Apps/Traefik/screenshot-1.png
+    - https://raw.githubusercontent.com/fseesink/CasaOS-AppStore/refs/heads/main/Apps/Traefik/screenshot-2.png
+    - https://raw.githubusercontent.com/fseesink/CasaOS-AppStore/refs/heads/main/Apps/Traefik/screenshot-3.png
   tagline:
     en_us: |
       Traefik is the leading open-source reverse proxy and load balancer for HTTP and TCP-based applications that is easy, dynamic and full-featured.
-  thumbnail: https://raw.githubusercontent.com/mr-manuel/CasaOS-HomeAutomation-AppStore/latest/Apps/Traefik-v3/icon.png
+  thumbnail: https://raw.githubusercontent.com/fseesink/CasaOS-AppStore/refs/heads/main/Apps/Traefik/icon.png
   tips:
     before_install:
       en_us: |
