@@ -1,5 +1,11 @@
 [
     {
+        "name": "nostr-rs-relay",
+        "editor": "Frank Seesink",
+        "date": "1749683317",
+        "reason": "This is a nostr relay, written in Rust."
+    },
+    {
         "name": "traefik",
         "editor": "Frank Seesink",
         "date": "1749683317",

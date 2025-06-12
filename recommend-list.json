@@ -1,5 +1,8 @@
 [
   {
+    "appid": "nostr-rs-relay"
+  },
+  {
     "appid": "traefik"
   }
 ]
