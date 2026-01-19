@@ -95,7 +95,7 @@ x-casaos:
   tips:
     before_install:
       en_us: |
-        NOTE: By default Arcane uses port `3552`.
+        NOTE: By default Arcane uses port `3552`. Initial username/password:  `arcane` / `arcane-admin`
 
         Also, set environment variables ENCRYPTION_KEY and JWT_SECRET to 32 byte values before launching. This can be done using either
 
