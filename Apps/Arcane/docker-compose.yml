@@ -83,6 +83,11 @@ x-casaos:
   project_url: https://github.com/fseesink/CasaOS-AppStore
   screenshot_link:
     - https://raw.githubusercontent.com/fseesink/CasaOS-AppStore/refs/heads/main/Apps/Arcane/screenshot-1.png
+    - https://raw.githubusercontent.com/fseesink/CasaOS-AppStore/refs/heads/main/Apps/Arcane/screenshot-2.png
+    - https://raw.githubusercontent.com/fseesink/CasaOS-AppStore/refs/heads/main/Apps/Arcane/screenshot-3.png
+    - https://raw.githubusercontent.com/fseesink/CasaOS-AppStore/refs/heads/main/Apps/Arcane/screenshot-4.png
+    - https://raw.githubusercontent.com/fseesink/CasaOS-AppStore/refs/heads/main/Apps/Arcane/screenshot-5.png
+    - https://raw.githubusercontent.com/fseesink/CasaOS-AppStore/refs/heads/main/Apps/Arcane/screenshot-6.png
   tagline:
     en_us: |
       Arcane is a beautiful, intuitive interface for managing your Docker containers, images, networks, and volumes. It is written in Go.
