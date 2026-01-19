@@ -95,15 +95,22 @@ x-casaos:
   tips:
     before_install:
       en_us: |
-        NOTE: By default Arcane uses port `3552`. Initial username/password:  `arcane` / `arcane-admin`
+        NOTE: By default Arcane uses
+        - Port: `3552`
+        - Username: `arcane`
+        - Password: `arcane-admin`
 
-        Also, set environment variables ENCRYPTION_KEY and JWT_SECRET to 32 byte values before launching. This can be done using either
-
-        `docker run --rm ghcr.io/getarcaneapp/arcane:latest /app/arcane generate secret`
-        
+        Set environment variables
+        - ENCRYPTION_KEY
+        - JWT_SECRET
+        to 32 byte values before launching. Use either
+        ```
+        docker run --rm ghcr.io/getarcaneapp/arcane:latest /app/arcane generate secret
+        ```
         or something like
-        
-        `openssl rand -base64 32`
+        ```        
+        openssl rand -base64 32
+        ```
 
         Visit [Arcane](https://getarcane.app/docs/setup/installation) for more details.
   title:
