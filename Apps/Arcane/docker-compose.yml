@@ -97,9 +97,13 @@ x-casaos:
       en_us: |
         NOTE: By default Arcane uses port `3552`.
 
-        Also, set environment variables ENCRYPTION_KEY and JWT_SECRET to 32 byte values before launching. This can be using either
+        Also, set environment variables ENCRYPTION_KEY and JWT_SECRET to 32 byte values before launching. This can be done using either
 
-        `docker run --rm ghcr.io/getarcaneapp/arcane:latest /app/arcane generate secret` or something like `openssl rand -base64 32`.
+        `docker run --rm ghcr.io/getarcaneapp/arcane:latest /app/arcane generate secret`
+        
+        or something like
+        
+        `openssl rand -base64 32`
 
         Visit [Arcane](https://getarcane.app/docs/setup/installation) for more details.
   title:
