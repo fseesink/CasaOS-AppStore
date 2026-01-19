@@ -1,0 +1,105 @@
+name: arcane
+services:
+  arcane:
+    image: ghcr.io/getarcaneapp/arcane:latest
+    cpu_shares: 10
+    container_name: arcane
+    deploy:
+      resources:
+        reservations:
+          memory: 64M
+        limits:
+          memory: 2048M
+    environment:
+      - APP_URL=http://localhost:3552
+      - ENCRYPTION_KEY=xxxxxxxxxxxxxxxxxxxxxx
+      - JWT_SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxx
+      - PGID=$PGID
+      - PUID=$PUID
+    hostname: arcane
+    labels:
+      icon: https://getarcane.app/img/favicon.ico
+    network_mode: bridge
+    ports:
+      - target: 3552
+        published: "3552"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+      - type: bind
+        source: /DATA/AppData/$AppID/data
+        target: /app/data
+      - type: bind
+        source: /DATA/AppData/$AppID/projects
+        target: /app/data/projects
+    x-casaos:
+      envs:                  # description of each environment variable
+        - container: APP_URL
+          description:
+            en_us: "The URL where you can access Arcane web UI"
+        - container: ENCRYPTION_KEY
+          description:
+            en_us: "Encryption Key for secure stored sensitive data. Must be 32 bytes (raw/base64/hex)."
+        - container: JWT_SECRET
+          description:
+            en_us: "Session secret. See https://getarcane.app/docs/setup/installation to generate secret."
+        - container: PGID
+          description:
+            en_us: "User that Arcane runs as"
+        - container: PUID
+          description:
+            en_us: "Group that Arcane runs under"
+      ports:                 # description of each port
+        - container: "3552"
+          description:
+            en_us: "Arcane will listen to incoming requests on the port 3552"
+      volumes:               # description of each volume
+        - container: /var/run/docker.sock
+          description:
+            en_us: "Specifies the Docker API endpoint."
+        - container: /app/data
+          description:
+            en_us: "Arcane data directory"
+        - container: /app/data/projects
+          description:
+            en_us: "Arcane saves your project definitions (files, and .env files) in this data directory"
+x-casaos:
+  architectures:             # a list of architectures that the app supports
+    - amd64
+    - arm64
+  author: Frank Seesink
+  category: Utilities
+  description:
+    en_us: |
+      Arcane is a beautiful, intuitive interface for managing your Docker containers, images, networks, and volumes. It is written in Go.
+
+      By default Arcane will use port `3552`. If you want to use change this, then you have first to change the WebUI port of CasaOS first under the settings in the top left menu. After deploying the container you can change the host port mapping to match whatever new port you chose.
+
+      Also, environment variable ENCRYPTION_KEY needs to be set to a 32 byte value and JWT_SECRET needs to be generated and set before launching.
+
+      Visit [Arcane](https://getarcane.app/docs/setup/installation) for more details.
+  developer: Arcane
+  icon: https://raw.githubusercontent.com/fseesink/CasaOS-AppStore/refs/heads/main/Apps/Arcane/icon.png
+  index: /
+  main: arcane       # the name of the main service under `services`
+  port_map: "3552"
+  project_url: https://github.com/fseesink/CasaOS-AppStore
+  screenshot_link:
+    - https://raw.githubusercontent.com/fseesink/CasaOS-AppStore/refs/heads/main/Apps/Arcane/screenshot-1.png
+  tagline:
+    en_us: |
+      Arcane is a beautiful, intuitive interface for managing your Docker containers, images, networks, and volumes. It is written in Go.
+  thumbnail: https://raw.githubusercontent.com/fseesink/CasaOS-AppStore/refs/heads/main/Apps/Arcane/icon.png
+  tips:
+    before_install:
+      en_us: |
+        By default Arcane will use port `3552`. If you want to use change this, then you have first to change the WebUI port of CasaOS first under the settings in the top left menu. After deploying the container you can change the host port mapping to match whatever new port you chose.
+
+        Also, environment variable ENCRYPTION_KEY needs to be set to a 32 byte value and JWT_SECRET needs to be generated and set before launching.
+
+        Visit [Arcane](https://getarcane.app/docs/setup/installation) for more details.
+  title:
+    en_us: Arcane

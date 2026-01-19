@@ -3,5 +3,10 @@
     "name": "Network",
     "font": "lan",
     "description": "Network Apps"
+  },
+  {
+    "name": "Utilities",
+    "font": "lan",
+    "description": "Utilities"
   }
 ]

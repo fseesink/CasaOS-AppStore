@@ -1,5 +1,11 @@
 [
     {
+        "name": "arcane",
+        "editor": "Frank Seesink",
+        "date": "1749683317",
+        "reason": "A beautiful, intuitive interface for managing your Docker containers, images, networks, and volumes. Written in Go."
+    },
+    {
         "name": "nostr-rs-relay",
         "editor": "Frank Seesink",
         "date": "1749683317",
