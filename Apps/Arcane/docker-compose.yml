@@ -95,9 +95,11 @@ x-casaos:
   tips:
     before_install:
       en_us: |
-        By default Arcane will use port `3552`. If you want to use change this, then you have first to change the WebUI port of CasaOS first under the settings in the top left menu. After deploying the container you can change the host port mapping to match whatever new port you chose.
+        NOTE: By default Arcane uses port `3552`.
 
-        Also, environment variable ENCRYPTION_KEY needs to be set to a 32 byte value and JWT_SECRET needs to be generated and set before launching.
+        Also, set environment variables ENCRYPTION_KEY and JWT_SECRET to 32 byte values before launching. This can be using either
+
+        `docker run --rm ghcr.io/getarcaneapp/arcane:latest /app/arcane generate secret` or something like `openssl rand -base64 32`.
 
         Visit [Arcane](https://getarcane.app/docs/setup/installation) for more details.
   title:
