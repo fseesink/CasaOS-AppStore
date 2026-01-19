@@ -32,9 +32,6 @@ services:
       - type: bind
         source: /DATA/AppData/$AppID/data
         target: /app/data
-      - type: bind
-        source: /DATA/AppData/$AppID/projects
-        target: /app/data/projects
     x-casaos:
       envs:                  # description of each environment variable
         - container: APP_URL
@@ -61,9 +58,6 @@ services:
           description:
             en_us: "Specifies the Docker API endpoint."
         - container: /app/data
-          description:
-            en_us: "Arcane data directory"
-        - container: /app/data/projects
           description:
             en_us: "Arcane saves your project definitions (files, and .env files) in this data directory"
 x-casaos:
