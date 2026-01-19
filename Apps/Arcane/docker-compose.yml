@@ -100,9 +100,10 @@ x-casaos:
         - Username: `arcane`
         - Password: `arcane-admin`
 
-        Set environment variables
+        Before launch, set environment variables
         - ENCRYPTION_KEY
         - JWT_SECRET
+
         to 32 byte values before launching. Use either
         ```
         docker run --rm ghcr.io/getarcaneapp/arcane:latest /app/arcane generate secret
