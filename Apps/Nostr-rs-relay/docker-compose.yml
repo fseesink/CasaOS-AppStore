@@ -50,7 +50,7 @@ x-casaos:
     en_us: |
       This is a nostr relay, written in Rust. It currently supports the entire relay protocol, and persists data with SQLite. There is experimental support for Postgresql.
 
-      By default Nostr-rs-relay will use port `7000`. If you want to use change this, then you have first to change the WebUI port of CasaOS first under the settings in the top left menu. After deploying the container you can change the host port mapping to match whatever new port you chose.
+      By default Nostr-rs-relay will use port `7000`. After deploying the container you can change the host port mapping to match whatever new port you chose.
 
       Visit [Nostr-rs-relay](https://github.com/scsibug/nostr-rs-relay) for more details.
   developer: Greg Heartsfield
@@ -70,6 +70,6 @@ x-casaos:
       en_us: |
         By default Nostr-rs-relay will use port `7000`. If you want to use another port, then you have first to change the WebUI port of CasaOS first under the settings in the top left menu. After deploying the container you can change the host port mapping to match whatever new port you chose.
 
-        [Website](https://github.com/scsibug/nostr-rs-relay) &bull;
+        [Website](https://github.com/scsibug/nostr-rs-relay)
   title:
     en_us: Nostr-rs-relay
