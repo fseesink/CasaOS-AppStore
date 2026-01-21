@@ -16,8 +16,8 @@ services:
     hostname: dockhand
     network_mode: bridge
     ports:
-      - target: 3100
-        published: "3000"
+      - target: 3000
+        published: "3100"
         protocol: tcp
     restart: unless-stopped
     volumes:
