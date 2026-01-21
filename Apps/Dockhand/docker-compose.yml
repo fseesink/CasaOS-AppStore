@@ -1,0 +1,102 @@
+name: dockhand
+services:
+  dockhand:
+    image: fnsys/dockhand:latest
+    cpu_shares: 10
+    container_name: dockhand
+    deploy:
+      resources:
+        reservations:
+          memory: 512M
+        limits:
+          memory: 2048M
+    environment:
+      - PGID=$PGID
+      - PUID=$PUID
+    hostname: dockhand
+    network_mode: bridge
+    ports:
+      - target: 3100
+        published: "3000"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+      - type: bind
+        source: /DATA/AppData/$AppID/data
+        target: /app/data
+    x-casaos:
+      envs:                  # description of each environment variable
+        - container: PGID
+          description:
+            en_us: "User that Dockhand runs as"
+        - container: PUID
+          description:
+            en_us: "Group that Dockhand runs under"
+      ports:                 # description of each port
+        - container: "3000"
+          description:
+            en_us: "Dockhand will listen to incoming requests on the port 3000"
+      volumes:               # description of each volume
+        - container: /var/run/docker.sock
+          description:
+            en_us: "Specifies the Docker API endpoint."
+        - container: /app/data
+          description:
+            en_us: "Dockhand stores all persistent data (database, stack files, git repositories) in its data directory."
+x-casaos:
+  architectures:             # a list of architectures that the app supports
+    - amd64
+    - arm64
+  author: Frank Seesink
+  category: Utilities
+  description:
+    en_us: |
+      Dockhand is a modern, efficient Docker management application providing real-time container management, Compose stack orchestration, and multi-environment support. All in a lightweight, secure and privacy-focused package.
+
+      SQLite by default, runs on a Raspberry Pi, zero telemetry, free forever. Self-host everything without the complexity.
+
+      By default Dockhand will use port `3100`. After deploying the container, you can change the host port mapping to match whatever new port you choose.
+
+      See [Dockhand Documentation](https://dockhand.pro/manual/) for more details. Also
+      - [this useful short YouTube video on Dockhand](https://www.youtube.com/watch?v=F7aXfYGf5q4)
+      - [Hawser:  Remote Docker agent for Dockhand](https://github.com/Finsys/hawser)
+  developer: Dockhand
+  icon: https://raw.githubusercontent.com/fseesink/CasaOS-AppStore/refs/heads/main/Apps/Dockhand/icon.png
+  index: /
+  main: dockhand       # the name of the main service under `services`
+  port_map: "3100"
+  project_url: https://github.com/fseesink/CasaOS-AppStore
+  screenshot_link:
+    - https://raw.githubusercontent.com/fseesink/CasaOS-AppStore/refs/heads/main/Apps/Dockhand/dashboard1.webp
+    - https://raw.githubusercontent.com/fseesink/CasaOS-AppStore/refs/heads/main/Apps/Dockhand/dashboard2.webp
+    - https://raw.githubusercontent.com/fseesink/CasaOS-AppStore/refs/heads/main/Apps/Dockhand/dashboard3.webp
+    - https://raw.githubusercontent.com/fseesink/CasaOS-AppStore/refs/heads/main/Apps/Dockhand/dashboard4.webp
+  tagline:
+    en_us: |
+      Modern Docker management for everyone.  A powerful, intuitive Docker platform. Free for homelabs, ready for enterprise.
+  thumbnail: https://raw.githubusercontent.com/fseesink/CasaOS-AppStore/refs/heads/main/Apps/Dockhand/icon.png
+  tips:
+    before_install:
+      en_us: |
+        NOTE: By default Dockhand uses
+        - Port: `3100`
+        and HAS NO AUTHENTICATION!
+
+        So first thing is to
+        - Click `⛭ Settings` in the lower left
+        - Click `Authentication` tab in upper right
+        - Click `[Add user]`. Enter username, email, password, and hit `[Create user]`
+        - Click `⛨ Authentication` switch on
+        - Finally, refresh the web page to be prompted for login
+
+        Next steps:
+        - Go to `⛭ Settings` and `[Add environment]`
+
+        See [Dockhand Documentation](https://dockhand.pro/manual/) for more details. Also
+        - [this useful short YouTube video on Dockhand](https://www.youtube.com/watch?v=F7aXfYGf5q4)
+        - [Hawser:  Remote Docker agent for Dockhand](https://github.com/Finsys/hawser)
+  title:
+    en_us: Dockhand
