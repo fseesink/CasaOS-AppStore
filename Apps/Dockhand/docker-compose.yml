@@ -88,6 +88,7 @@ x-casaos:
         So first thing is to
         - Click `⛭ Settings` in the lower left
         - Click `Authentication` tab in upper right
+        - Click `Users` tab below `⛨ Authentication` switch
         - Click `[Add user]`. Enter username, email, password, and hit `[Create user]`
         - Click `⛨ Authentication` switch on
         - Finally, refresh the web page to be prompted for login
