@@ -1,0 +1,86 @@
+name: searxng
+services:
+  searxng:
+    image: docker.io/searxng/searxng:latest
+    cpu_shares: 10
+    container_name: searxng
+    deploy:
+      resources:
+        reservations:
+          memory: 512M
+        limits:
+          memory: 2048M
+    environment:
+      - PGID=$PGID
+      - PUID=$PUID
+    hostname: searxng
+    network_mode: bridge
+    ports:
+      - target: 8080
+        published: "8888"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/AppData/$AppID/config
+        target: /etc/searxng/
+      - type: bind
+        source: /DATA/AppData/$AppID/data
+        target: /var/cache/searxng/
+    x-casaos:
+      envs:                  # description of each environment variable
+        - container: PGID
+          description:
+            en_us: "User that SearXNG runs as"
+        - container: PUID
+          description:
+            en_us: "Group that SearXNG runs under"
+      ports:                 # description of each port
+        - container: "8080"
+          description:
+            en_us: "SearXNG will listen to incoming requests on the port 8080"
+      volumes:               # description of each volume
+        - container: /etc/searxng/
+          description:
+            en_us: "Specifies where SearXNG stores its configuration in files such as `settings.yml`."
+        - container: /var/cache/searxng/
+          description:
+            en_us: "SearXNG stores all persistent data in its data directory."
+x-casaos:
+  architectures:             # a list of architectures that the app supports
+    - amd64
+    - arm
+    - arm64
+  author: Frank Seesink
+  category: Utilities
+  description:
+    en_us: |
+      SearXNG is a free internet metasearch engine which aggregates results from up to 245 search services. Users are neither tracked nor profiled. Additionally, SearXNG can be used over Tor for online anonymity.
+
+      By default SearXNG will use port `8888`. After deploying the container, you can change the host port mapping to match whatever new port you choose.
+
+      See [SearXNG Documentation](https://docs.searxng.org) for more details.
+  developer: SearXNG
+  icon: https://raw.githubusercontent.com/fseesink/CasaOS-AppStore/refs/heads/main/Apps/SearXNG/searxng.svg
+  index: /
+  main: searxng       # the name of the main service under `services`
+  port_map: "8888"
+  project_url: https://github.com/fseesink/CasaOS-AppStore
+  screenshot_link:
+    - https://raw.githubusercontent.com/fseesink/CasaOS-AppStore/refs/heads/main/Apps/SearXNG/screenshot-1.png
+  tagline:
+    en_us: |
+      SearXNG is a free internet metasearch engine which aggregates results from up to 245 search services. Users are neither tracked nor profiled.
+  thumbnail: https://raw.githubusercontent.com/fseesink/CasaOS-AppStore/refs/heads/main/Apps/SearXNG/searxng.svg
+  tips:
+    before_install:
+      en_us: |
+        NOTE: By default SearXNG uses
+        - Port: `8888`
+
+        Next steps:
+        - Go to `⛭ Preferences` in the upper right to adjust settings.
+
+        See [SearXNG Documentation](https://docs.searxng.org) for more details.
+  title:
+    en_us: SearXNG
